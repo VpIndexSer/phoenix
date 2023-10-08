@@ -35,7 +35,7 @@ function App() {
           <div className="App">
             <NavBar />
           </div>
-          <div className="container my-2" style={{ height: "50px" }}>
+          <div className="container my-2" style={{ height: "100px"}}>
             <Mymsg msg={msg} />
           </div>
           <div className="container" >
