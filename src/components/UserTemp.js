@@ -19,7 +19,7 @@ const UserTemp = () => {
     
     return (
         <>
-        <div className="container"> 
+        <div className="container-fluid "> 
             <div className='row'>
                 <div className="container my-4" style={{ textAlign: "center", color: "red" }}><h3>
                     {content.length === 0 && 'No Content to Display'}</h3> </div>
