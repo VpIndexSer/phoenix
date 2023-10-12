@@ -29,6 +29,9 @@ export const NavBar = () => {
               <li className="nav-item">
                 <Link className={`nav-link ${location.pathname==="/series"?"active":""}`} to="/series">series</Link>                   
               </li>
+              <li className="nav-item">
+                <Link className={`nav-link ${location.pathname==="/user"?"active":""}`} to="/user">user</Link>                   
+              </li>
             </ul>
             
             {/* <form className="d-flex" role="search">

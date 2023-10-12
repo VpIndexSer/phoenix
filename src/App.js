@@ -15,6 +15,7 @@ import Mymsg from './components/Mymsg';
 import Login from './components/Login';
 import ContentState from './context/contents/ContentState';
 import Contents from './components/Contents';
+import UserTemp from 'components/UserTemp';
 
 function App() {
   const [msg, setMsg] = useState(null);
@@ -35,7 +36,7 @@ function App() {
           <div className="App">
             <NavBar />
           </div>
-          <div className="container my-2" style={{ height: "100px"}}>
+          <div className="container my-2" style={{ height: "100px" }}>
             <Mymsg msg={msg} />
           </div>
           <div className="container" >
@@ -44,7 +45,7 @@ function App() {
               <Route exact path="/"
                 element={
                   <div className="container my-3">
-                    <Contents/>
+                    <Contents />
                   </div>} />
               <Route exact path="/movie"
                 element={
@@ -55,6 +56,11 @@ function App() {
                 element={
                   <div className="series">
                     <Series />
+                  </div>} />
+              <Route exact path="/user"
+                element={
+                  <div className="user">
+                    <UserTemp/>
                   </div>} />
               <Route exact path="/login"
                 element={
