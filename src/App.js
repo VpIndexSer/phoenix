@@ -16,10 +16,21 @@ import Login from './components/Login';
 import ContentState from './context/contents/ContentState';
 import Contents from './components/Contents';
 import UserTemp from 'components/UserTemp';
+import PlayIt from 'components/PlayIt';
 
 function App() {
   const [msg, setMsg] = useState(null);
+  const [play, setPlay] = useState("404");
+  const [mygrid, setMygrid] = useState("col4");
+  const mgrid=(val)=>{
+    setMygrid(val);
+  }
 
+  const playit = (contenturl) => {
+    setPlay({
+      play: contenturl
+    });
+  }
   const showMsg = (message, type) => {
     setMsg({
       msg: message,
@@ -60,7 +71,12 @@ function App() {
               <Route exact path="/user"
                 element={
                   <div className="user">
-                    <UserTemp/>
+                    <UserTemp mygrid={mygrid} mgrid={mgrid} playit={playit}/>
+                  </div>} />
+              <Route exact path="/playit"
+                element={
+                  <div className="playit">
+                    <PlayIt play={play}/>
                   </div>} />
               <Route exact path="/login"
                 element={

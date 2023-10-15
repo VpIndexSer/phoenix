@@ -109,12 +109,22 @@ i{
 }
 .postcontainer
 {
-  padding:0px;
+  padding:2px;
   margin: 0px;
 }
-.col-xs-6
+.col4
 {
   flex: 0 0 auto;
   width: 25%;
 
+}
+.col3
+{
+  flex: 0 0 auto;
+  width: 33.33333333%;
+}
+.col2
+{
+  flex: 0 0 auto;
+  width: 50%;
 }
