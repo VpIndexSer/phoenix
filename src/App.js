@@ -21,7 +21,7 @@ import PlayIt from 'components/PlayIt';
 function App() {
   const [msg, setMsg] = useState(null);
   const [play, setPlay] = useState("404");
-  const [mygrid, setMygrid] = useState("col4");
+  const [mygrid, setMygrid] = useState("");
   const mgrid=(val)=>{
     setMygrid(val);
   }
