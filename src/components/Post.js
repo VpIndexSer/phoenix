@@ -4,7 +4,8 @@ export const Post = (props) => {
     const { content,playit} = props;
     let mygrid=props.mygrid;
     const uplay =()=>{
-      console.log("200");
+     // console.log("200");
+      playit(content.url);
     }
   return (
     <>

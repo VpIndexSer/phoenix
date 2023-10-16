@@ -21,15 +21,13 @@ import PlayIt from 'components/PlayIt';
 function App() {
   const [msg, setMsg] = useState(null);
   const [play, setPlay] = useState("404");
-  const [mygrid, setMygrid] = useState("");
+  const [mygrid, setMygrid] = useState(null);
   const mgrid=(val)=>{
     setMygrid(val);
   }
 
   const playit = (contenturl) => {
-    setPlay({
-      play: contenturl
-    });
+    setPlay(contenturl);
   }
   const showMsg = (message, type) => {
     setMsg({
@@ -42,10 +40,13 @@ function App() {
   }
   return (
     <>
+      
       <ContentState>
+        
         <Router>
+        <NavBar />
           <div className="App">
-            <NavBar />
+           
           </div>
           <div className="container my-2" style={{ height: "100px" }}>
             <Mymsg msg={msg} />
@@ -71,7 +72,7 @@ function App() {
               <Route exact path="/user"
                 element={
                   <div className="user">
-                    <UserTemp mygrid={mygrid} mgrid={mgrid} playit={playit}/>
+                    <UserTemp play={play} mygrid={mygrid} mgrid={mgrid} playit={playit}/>
                   </div>} />
               <Route exact path="/playit"
                 element={

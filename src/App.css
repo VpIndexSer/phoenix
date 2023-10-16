@@ -128,3 +128,8 @@ i{
   flex: 0 0 auto;
   width: 50%;
 }
+.my-video{
+  height: 100%; width: 100%; cursor: default;
+  overflow:hidden; z-index:999999;
+  aspect-ratio:16/7;
+}
