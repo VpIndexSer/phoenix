@@ -44,9 +44,9 @@ function App() {
       <ContentState>
         
         <Router>
-        <NavBar />
+       
           <div className="App">
-           
+          <NavBar />
           </div>
           <div className="container my-2" style={{ height: "100px" }}>
             <Mymsg msg={msg} />
