@@ -6,7 +6,9 @@ const PlayIt = (props) => {
     
     props.play&&<div>
     <iframe className="my-video"src={`${props.play}`} width="640" height="480" allow="autoplay" allowfullscreen="allowfullscreen"></iframe>
-   
+    <p><h2>{props.title}</h2></p>
+    <p><h5>by : {props.studio}</h5></p>
+
       {/* <video controls className="my-video" playsinline="" webkit-playsinline="" preload="auto">
 <source src={`${props.play}`} title="360p" type="video/mp4"/>
 </video> */}

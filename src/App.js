@@ -21,13 +21,20 @@ import PlayIt from 'components/PlayIt';
 function App() {
   const [msg, setMsg] = useState(null);
   const [play, setPlay] = useState(null);
+  const [title, setTitle] = useState(null);
+  const [studio, setStudio] = useState(null);
   const [mygrid, setMygrid] = useState(null);
   const mgrid=(val)=>{
     setMygrid(val);
   }
 
-  const playit = (contenturl) => {
+  // const playit = (contenturl) => {
+  //   setPlay(contenturl);
+  // }
+  const playit = (contenturl,vtitle,vstudio) => {
     setPlay(contenturl);
+    setStudio(vstudio);
+    setTitle(vtitle);
   }
   const showMsg = (message, type) => {
     setMsg({
@@ -72,12 +79,12 @@ function App() {
               <Route exact path="/user"
                 element={
                   <div className="user">
-                    <UserTemp play={play} mygrid={mygrid} mgrid={mgrid} playit={playit}/>
+                    <UserTemp play={play} title={title} studio={studio} mygrid={mygrid} mgrid={mgrid} playit={playit}/>
                   </div>} />
               <Route exact path="/playit"
                 element={
                   <div className="playit">
-                    <PlayIt play={play}/>
+                    <PlayIt play={play} title={title} studio={studio}/>
                   </div>} />
               <Route exact path="/login"
                 element={

@@ -5,7 +5,7 @@ export const Post = (props) => {
     let mygrid=props.mygrid;
     const uplay =()=>{
      // console.log("200");
-      playit(content.url);
+      playit(content.url,content.name,content.studio);
     }
   return (
     <>
