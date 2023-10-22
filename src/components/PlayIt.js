@@ -5,7 +5,7 @@ const PlayIt = (props) => {
   return (
     
     props.play&&<div>
-    <iframe className="my-video"src={`${props.play}`} width="640" height="480" allow="autoplay" allowfullscreen="allowfullscreen"></iframe>
+    <iframe className="my-video"src={`${props.play}`}  allow="autoplay" allowfullscreen="allowfullscreen"></iframe>
     <p><h2>{props.title}</h2></p>
     <p><h5>by : {props.studio}</h5></p>
 
