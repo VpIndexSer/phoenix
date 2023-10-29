@@ -56,19 +56,19 @@ export default function AddContents() {
                 <form className='wholeform' >
                     <div className="form-group">
                         <label htmlFor="name" className='addformlable'>Name of Content</label>
-                        <input type="text" onChange={onChange} name="name" value={content.name} className="form-control addform" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name" required />
+                        <input type="text" onChange={onChange} name="name" value={content.name} className="form-control addform" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Content name" required />
                     </div>
                     <div className="form-group">
                         <label htmlFor="img" className='addformlable'>Image</label>
-                        <input type="text" onChange={onChange} name="img" value={content.img} className="form-control addform" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name" required />
+                        <input type="text" onChange={onChange} name="img" value={content.img} className="form-control addform" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Image Url" required />
                     </div>
                     <div className="form-group">
                         <label htmlFor="url" className='addformlable'>Video</label>
-                        <input type="text" onChange={onChange} name="url" value={content.url} className="form-control addform" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name" required />
+                        <input type="text" onChange={onChange} name="url" value={content.url} className="form-control addform" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Video Url" required />
                     </div>
                     <div className="form-group">
                         <label htmlFor="studio" className='addformlable'>Studio</label>
-                        <input type="text" onChange={onChange} name="studio" value={content.studio} className="form-control addform" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name" required />
+                        <input type="text" onChange={onChange} name="studio" value={content.studio} className="form-control addform" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Producer Name" required />
                     </div>
 
                     <button disabled={content.name.length < 1 || content.url.length < 5 || content.img.length < 5} type="submit" className="btn btn-success mybtn" onClick={handleclick}>Submit</button>
