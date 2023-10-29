@@ -6,13 +6,15 @@ import {useNavigate} from 'react-router-dom';
 export const NavBar = () => {
     let location = useLocation();
     let navigate = useNavigate();
+    let currtoken=localStorage.getItem('token');
     const handleLogOut=async()=>{
      await fetch("https://backend-api-five-psi.vercel.app/api/auth/logout", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           "auth-token": localStorage.getItem('token')
-        },
+        }, 
+        body: JSON.stringify({logtoken:currtoken}),
       });
       localStorage.removeItem('token')
       navigate("/login");

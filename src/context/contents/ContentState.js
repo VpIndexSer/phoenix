@@ -23,7 +23,7 @@ const ContentState = (props) => {
 
     });
     const json=await response.json();
-    console.log(json)
+  //  console.log(json)
     setContent(json);
   }
 
