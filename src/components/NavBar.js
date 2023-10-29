@@ -7,6 +7,7 @@ export const NavBar = () => {
     let location = useLocation();
     let navigate = useNavigate();
     let currtoken=localStorage.getItem('token');
+    console.log(currtoken)
     const handleLogOut=async()=>{
      await fetch("https://backend-api-five-psi.vercel.app/api/auth/logout", {
         method: "POST",
