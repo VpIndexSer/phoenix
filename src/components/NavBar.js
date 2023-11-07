@@ -17,7 +17,10 @@ export const NavBar = () => {
         }, 
         body: JSON.stringify({currtoken}),
       });
-      localStorage.removeItem('token')
+      localStorage.removeItem('token');
+      localStorage.removeItem('play');
+      localStorage.removeItem('title');
+      localStorage.removeItem('studio');
       navigate("/login");
     }
     return (
