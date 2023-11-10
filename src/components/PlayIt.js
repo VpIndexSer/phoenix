@@ -22,10 +22,11 @@ const PlayIt = (props) => {
     
     play&&<div>
       {
-    ishide&&<img className="my-img" src={`${img}`} alt="content imgs" onClick={show}/>  }
+    ishide&&<div className='myimgagecontainer'><img className="my-img" src={`${img}`} alt="content imgs" onClick={show}/></div>  }
     {
     hide&&<iframe className="my-video"src={`${play}`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>
     }
+    <img src="../" alt="" />
     <p><h2>{title}</h2></p>
     <p><h5>by : {studio}</h5></p>
 
