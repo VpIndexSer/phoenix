@@ -26,7 +26,7 @@ const PlayIt = (props) => {
     {
     hide&&<iframe className="my-video"src={`${play}`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>
     }
-    <img src="../" alt="" />
+    <img src="https://vscode.dev/github/VpIndexSer/phoenix/blob/master/src/components/p.gif" alt="img" />
     <p><h2>{title}</h2></p>
     <p><h5>by : {studio}</h5></p>
 
