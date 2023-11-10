@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import p from '../img/p.gif'
 const PlayIt = (props) => {
   console.log("playit")
   if(props.play){
@@ -22,11 +22,11 @@ const PlayIt = (props) => {
     
     play&&<div>
       {
-    ishide&&<div className='myimgagecontainer'><img className="my-img" src={`${img}`} alt="content imgs" onClick={show}/></div>  }
+    ishide&&<div className='myimgagecontainer'><img className="my-img" src={`${img}`} alt="content imgs" onClick={show}/>
+    <img src={p} className='pgif' alt="" /></div>  }
     {
     hide&&<iframe className="my-video"src={`${play}`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>
     }
-    <img src="https://vscode.dev/github/VpIndexSer/phoenix/blob/master/src/components/p.gif" alt="img" />
     <p><h2>{title}</h2></p>
     <p><h5>by : {studio}</h5></p>
 
