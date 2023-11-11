@@ -140,10 +140,14 @@ i{
   object-fit: contain;
   aspect-ratio:16/8;
 }
+.myimgagecontainer{
+  position: relative;
+}
 .myimgagecontainer .pgif{
   position: absolute;
-  top: 60%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   cursor: pointer;
+  width: -webkit-fill-available;
 }
