@@ -25,7 +25,7 @@ const PlayIt = (props) => {
     ishide&&<div className='myimgagecontainer'><img className="my-img" src={`${img}`} alt="content imgs"/>
     <img src={p} className='pgif' alt="" onClick={show}/></div>  }
     {
-    hide&&<iframe className="my-video"src={`${play}`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>
+    hide&&<iframe title={title} className="my-video"src={`${play}`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>
     }
     <p><h2>{title}</h2></p>
     <p><h5>by : {studio}</h5></p>
