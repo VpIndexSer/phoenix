@@ -14,6 +14,7 @@ import Series from './components/Series';
 import Mymsg from './components/Mymsg';
 import Login from './components/Login';
 import ContentState from './context/contents/ContentState';
+import WebContentState from 'context/webcontents/WebContentState';
 import Contents from './components/Contents';
 import UserTemp from 'components/UserTemp';
 import PlayIt from 'components/PlayIt';
@@ -25,14 +26,14 @@ function App() {
   const [title, setTitle] = useState(null);
   const [studio, setStudio] = useState(null);
   const [mygrid, setMygrid] = useState(null);
-  const mgrid=(val)=>{
+  const mgrid = (val) => {
     setMygrid(val);
   }
 
   // const playit = (contenturl) => {
   //   setPlay(contenturl);
   // }
-  const playit = (contenturl,vtitle,vstudio,vimg) => {
+  const playit = (contenturl, vtitle, vstudio, vimg) => {
     setPlay(contenturl);
     setStudio(vstudio);
     setTitle(vtitle);
@@ -49,54 +50,55 @@ function App() {
   }
   return (
     <>
-      
-      <ContentState>
-        
-        <Router>
-       
-          <div className="App">
-          <NavBar />
-          </div>
-          <div className="container my-2" style={{ height: "100px" }}>
-            <Mymsg msg={msg} />
-          </div>
-          <div className="container" >
-            <Routes>
+      <WebContentState>
+        <ContentState>
 
-              <Route exact path="/"
-                element={
-                  <div className="container my-3">
-                    <Contents />
-                  </div>} />
-              <Route exact path="/movie"
-                element={
-                  <div className="movie">
-                    <Movie />
-                  </div>} />
-              <Route exact path="/series"
-                element={
-                  <div className="series">
-                    <Series />
-                  </div>} />
-              <Route exact path="/user"
-                element={
-                  <div className="user">
-                    <UserTemp play={play} title={title} studio={studio} mygrid={mygrid} mgrid={mgrid} playit={playit}/>
-                  </div>} />
-              <Route exact path="/playit"
-                element={
-                  <div className="playit">
-                    <PlayIt play={play} title={title} img={img} studio={studio}/>
-                  </div>} />
-              <Route exact path="/login"
-                element={
-                  <div className="container my-3">
-                    <Login showMsg={showMsg} />
-                  </div>} />
-            </Routes>
-          </div>
-        </Router>
-      </ContentState>
+          <Router>
+
+            <div className="App">
+              <NavBar />
+            </div>
+            <div className="container my-2" style={{ height: "100px" }}>
+              <Mymsg msg={msg} />
+            </div>
+            <div className="container" >
+              <Routes>
+
+                <Route exact path="/"
+                  element={
+                    <div className="container my-3">
+                      <Contents />
+                    </div>} />
+                <Route exact path="/movie"
+                  element={
+                    <div className="movie">
+                      <Movie />
+                    </div>} />
+                <Route exact path="/series"
+                  element={
+                    <div className="series">
+                      <Series />
+                    </div>} />
+                <Route exact path="/user"
+                  element={
+                    <div className="user">
+                      <UserTemp play={play} title={title} studio={studio} mygrid={mygrid} mgrid={mgrid} playit={playit} />
+                    </div>} />
+                <Route exact path="/playit"
+                  element={
+                    <div className="playit">
+                      <PlayIt play={play} title={title} img={img} studio={studio} />
+                    </div>} />
+                <Route exact path="/login"
+                  element={
+                    <div className="container my-3">
+                      <Login showMsg={showMsg} />
+                    </div>} />
+              </Routes>
+            </div>
+          </Router>
+        </ContentState>
+      </WebContentState>
     </>
   );
 }
