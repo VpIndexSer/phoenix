@@ -18,6 +18,7 @@ import WebContentState from 'context/webcontents/WebContentState';
 import Contents from './components/Contents';
 import UserTemp from 'components/UserTemp';
 import PlayIt from 'components/PlayIt';
+import CRUDSeason from 'components/CRUDSeason';
 
 function App() {
   const [msg, setMsg] = useState(null);
@@ -26,6 +27,7 @@ function App() {
   const [title, setTitle] = useState(null);
   const [studio, setStudio] = useState(null);
   const [mygrid, setMygrid] = useState(null);
+  const [w_id, setW_id] = useState(null);
   const mgrid = (val) => {
     setMygrid(val);
   }
@@ -38,6 +40,9 @@ function App() {
     setStudio(vstudio);
     setTitle(vtitle);
     setImg(vimg);
+  }
+  const setWID=(wid)=>{
+    setW_id(wid);
   }
   const showMsg = (message, type) => {
     setMsg({
@@ -77,7 +82,7 @@ function App() {
                 <Route exact path="/series"
                   element={
                     <div className="series">
-                      <Series />
+                      <Series setWID={setWID}/>
                     </div>} />
                 <Route exact path="/user"
                   element={
@@ -88,6 +93,11 @@ function App() {
                   element={
                     <div className="playit">
                       <PlayIt play={play} title={title} img={img} studio={studio} />
+                    </div>} />
+                <Route exact path="/seasons"
+                  element={
+                    <div className="seasons">
+                      <CRUDSeason w_id={w_id}/>
                     </div>} />
                 <Route exact path="/login"
                   element={

@@ -1,10 +1,11 @@
 import React from 'react'
-import { useContext } from 'react'
-import webcontentContext from 'context/webcontents/webcontentContext';
+import {Link} from "react-router-dom";
+// import { useContext } from 'react'
+// import webcontentContext from 'context/webcontents/webcontentContext';
 const WebContentItem = (props) => {
-    const concon=useContext(webcontentContext);
-    const{deleteContent}=concon;
-    const { content,updateContent } = props;
+    // const concon=useContext(webcontentContext);
+    // const{deleteContent}=concon;
+    const { content,updateContent,deleteYN,setWID } = props;
     
     return (
         <div className="col-md-3 col-lg-3 col-xl-2 col-sm-4 my-3">
@@ -16,8 +17,11 @@ const WebContentItem = (props) => {
                         {/* <h5 className="card-title" style={{textAlign:"center"}}>{content.name?content.name.slice(0,14):""}</h5> */}
                         {/* <p className="card-text"><b>Producer: </b>{content.studio?content.studio.slice(0,19):""}</p> */}
                         <div className="d-flex justify-content-end oprationline">                      
-                        <i className="fa-solid fa-trash mx-2" onClick={()=>{deleteContent(content._id)}}></i>
+                        <i className="fa-solid fa-trash mx-2" onClick={()=>{deleteYN(content._id)}}></i>
                         <i className="fa-regular fa-pen-to-square mx-2" onClick={()=>{updateContent(content)}}></i>
+                        <Link to="/seasons" style={{marginTop:"-5px"}}>
+                        <i class="fa-solid fa-folder-plus" style={{color:"white"}} onClick={()=>{setWID(content._id)}}></i>
+                        </Link>
                         </div>
                         <h5 className="card-title" style={{textAlign:"center"}}>{content.name}</h5>
                         <p className="card-text"><b>Producer: </b>{content.studio}</p>

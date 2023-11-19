@@ -5,13 +5,11 @@ import {useNavigate} from 'react-router-dom';
 import AddContents from './AddContents';
 import ContentItem from './ContentItem';
 
-
-
 export default function Contents() {
   //fetching all notes with help of usecontext
   let navigate = useNavigate();
   const concon = useContext(contentContext);
-  const { content, getContent,editcontent } = concon;
+  const { content, getContent,editcontent,deleteContent } = concon;
   //   console.log(notes)
 
   const [contents, setContents] = useState({id:"",ename:"",eimg:"",eurl:"",estudio:"",econtenttype:""})
@@ -71,10 +69,48 @@ export default function Contents() {
 const onChange=(e)=>{
   setContents({...contents,[e.target.name]:e.target.value});
 }
+
+//delete confirmation
+const refClick=useRef(null);
+const refCloseYN=useRef(null);
+let delid=null;
+const deleteYN = (deleteid) =>{
+   delid=deleteid;
+  refClick.current.click();
+}
+const handleclick2=(e)=>{
+  e.preventDefault();  
+  deleteContent(delid);
+  refClick.current.click();
+}
   return (<>
    <AddContents/>
+    {/* <!-- Button trigger modal --> */}
+    <button ref={refClick} type="button" className="btn btn-primary d-none" data-toggle="modal" data-target="#exampleModalCenter">
+                {/* Launch demo modal */}
+            </button>
 
-
+            {/* <!-- Modal --> */}
+            <div className="modal fade" id="exampleModalCenter" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div className="modal-dialog modal-dialog-centered" role="document">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h5 className="modal-title" id="exampleModalLongTitle"style={{color:"black"}}>Delete Confrimation </h5>
+                            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div className="modal-body">
+                           <p style={{color:"black"}}>Are You Sure to delete the content ???</p>
+                        </div>
+                        <div className="modal-footer">
+                            <button type="button" className="btn btn-secondary" data-dismiss="modal" ref={refCloseYN}>Close</button>
+                            <button type="button" className="btn btn-primary" onClick={handleclick2}>Delete Permanently</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+{/* edit from */}
     <button ref={ref} type="button" className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
       Launch demo modal
     </button>
@@ -124,7 +160,7 @@ const onChange=(e)=>{
       {content.map((content) => {
         // for unique key constrain key is used
         
-        return <ContentItem key={content._id}  updateContent={updateContent} content={content}/>;
+        return <ContentItem key={content._id}  updateContent={updateContent} deleteYN={deleteYN}content={content}/>;
         // <ContentItem key={notes._id} updateContent={updateContent} note={notes} showMsg={props.showMsg}/>;
       })}
     </div>
