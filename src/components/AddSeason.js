@@ -32,7 +32,7 @@ const AddSeason = (props) => {
     <>
       <div>
         <center>
-          <h1 className='my-2'>Add Web Series Content</h1>
+          <h1 className='my-2'>Add Web Series Content Season</h1>
         </center>
         <form className='wholeform' >
           <div className="form-group">
