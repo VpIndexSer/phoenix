@@ -7,6 +7,8 @@ const WebContentState = (props) => {
    const host = "https://backend-api-five-psi.vercel.app";
    const contentinitial = []
    const [content, setContent] = useState(contentinitial)
+   const seasoninitial=[];
+   const [season, setSeason] = useState(seasoninitial);
    const getContent = async () => {
      //api call
      const response = await fetch(`${host}/api/webcontent/fetchallcontents`, {
@@ -100,8 +102,95 @@ const WebContentState = (props) => {
  
    }
  
+  //  add season
+    const addSeason =async(wid,sno)=>{
+       //api call
+ 
+      const response = await fetch(`${host}/api/webcontent/addcontent/addseason/${wid}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "auth-token": localStorage.getItem('token')
+        },
+        body: JSON.stringify({sno}),
+      });
+      //user side localy updation
+      const seasons = await response.json();
+
+      setSeason(season.concat(seasons));
+    }
+
+    // all episode
+    const getSeason = async (w_id) => {
+      //api call
+      const response = await fetch(`${host}/api/webcontent/fetchallcontents/fetchallseason/${w_id}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "auth-token": localStorage.getItem('token')
+        },
+      });
+      const json=await response.json();
+    //  console.log(json)
+      setSeason(json);
+    }
+
+    // edit Season
+    const editSeason = async (sid,sno) => {
+      //localy put the value
+      // contenttype="movie";
+      //api call
+      const response = await fetch(`${host}/api/webcontent/updatecontent/updateseason/${sid}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "auth-token": localStorage.getItem('token')
+        },
+        body: JSON.stringify({sno}),
+        
+      });
+     
+      const json = response.json();
+      console.log(json)
+      // localy check for value
+      // console.log(contenttype)
+  
+  
+      //localy update data but server side has same date so no error will be occurs
+      let newSeason=JSON.parse(JSON.stringify(season))
+      //logic edite in client
+      for (let index = 0; index < newSeason.length; index++) {
+        const element = newSeason[index];
+        if (element._id === sid) {
+          newSeason[index].sno = sno;
+          break;
+        }
+      }
+      setSeason(newSeason);
+    }
+    
+    //delete note
+   const deleteSeason = async(sid) => {
+     
+    //api call
+
+    const response = await fetch(`${host}/api/webcontent/deletecontent/deleteseason/${sid}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "auth-token": localStorage.getItem('token')
+      },
+     
+    });
+   const json=await response.json();
+   console.log(json)
+    //frontend side localy delete
+    const newSeason = season.filter((season) => { return season._id !== sid });
+    setSeason(newSeason);
+  }
+
    return (
-     <webcontentContext.Provider value={{ content, addContent, deleteContent, editcontent ,getContent}}>
+     <webcontentContext.Provider value={{ content,season, addContent, deleteContent, editcontent ,getContent,addSeason,getSeason,editSeason,deleteSeason}}>
        {/* <noteContext.Provider value={{state,update}}> */}
        {props.children}
      </webcontentContext.Provider>
