@@ -5,15 +5,20 @@ import webcontentContext from 'context/webcontents/webcontentContext';
 import EpisodeItem from './EpisodeItem';
 const CRUDEpisode = (props) => {
   const { s_id } = props;
+  if(s_id)
+  {
+    localStorage.setItem('stored_s_id',s_id);
+  }
+  let stored_s_id=localStorage.getItem('stored_s_id');
   const [episodes, setEpisodes] = useState({ id: "", ueno: "", ueurl: "" });
   const concon = useContext(webcontentContext);
-  const { episode, getSeason, editEpisode, deleteEpisode } = concon;
+  const { episode, getEpisode, editEpisode, deleteEpisode } = concon;
   let navigate = useNavigate();
   useEffect(() => {
     if (localStorage.getItem('token')) {
-      getSeason(s_id);
-      console.log(s_id)
-      console.log(episode)
+      getEpisode(stored_s_id);
+      // console.log(stored_s_id)
+      // console.log(episode)
     }
     else {
       navigate("/login");
@@ -125,7 +130,7 @@ const CRUDEpisode = (props) => {
           {episode.length === 0 && 'No Content to Display'}</h3> </div>
         {episode.map((episode) => {
           // for unique key constrain key is used
-          return <EpisodeItem episode={episode} updateEpisode={updateEpisode} deleteYN={deleteYN} />;
+          return <EpisodeItem key={episode._id} episode={episode} updateEpisode={updateEpisode} deleteYN={deleteYN} />;
           // <ContentItem key={notes._id} updateContent={updateContent} note={notes} showMsg={props.showMsg}/>;
         })}
       </div>

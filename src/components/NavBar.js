@@ -22,6 +22,7 @@ export const NavBar = () => {
       localStorage.removeItem('title');
       localStorage.removeItem('studio');
       localStorage.removeItem('stored_w_id');
+      localStorage.removeItem('stored_s_id');
       navigate("/login");
     }
     return (

@@ -20,7 +20,7 @@ const WebContentItem = (props) => {
                         <i className="fa-solid fa-trash mx-2" onClick={()=>{deleteYN(content._id)}}></i>
                         <i className="fa-regular fa-pen-to-square mx-2" onClick={()=>{updateContent(content)}}></i>
                         <Link to="/seasons" style={{marginTop:"-5px"}}>
-                        <i class="fa-solid fa-folder-plus" style={{color:"white"}} onClick={()=>{setWID(content._id)}}></i>
+                        <i className="fa-solid fa-folder-plus" style={{color:"white"}} onClick={()=>{setWID(content._id)}}></i>
                         </Link>
                         </div>
                         <h5 className="card-title" style={{textAlign:"center"}}>{content.name}</h5>
