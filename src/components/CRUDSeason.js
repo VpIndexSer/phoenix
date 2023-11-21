@@ -7,11 +7,16 @@ const CRUDSeason = (props) => {
     const concon = useContext(webcontentContext);
     const { season, getSeason, deleteSeason, editSeason } = concon;
     const { w_id, setSID } = props;
+    if(w_id)
+    {
+        localStorage.setItem("stored_w_id",w_id);
+    }
+    let stored_w_id=localStorage.getItem("stored_w_id");
     let navigate = useNavigate();
     const [seasons, setSeasons] = useState({id: "", esno: "" })
     useEffect(() => {
         if (localStorage.getItem('token')) {
-            getSeason(w_id);
+            getSeason(stored_w_id);
         }
         else {
             navigate("/login");

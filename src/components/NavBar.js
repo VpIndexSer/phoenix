@@ -21,6 +21,7 @@ export const NavBar = () => {
       localStorage.removeItem('play');
       localStorage.removeItem('title');
       localStorage.removeItem('studio');
+      localStorage.removeItem('stored_w_id');
       navigate("/login");
     }
     return (
