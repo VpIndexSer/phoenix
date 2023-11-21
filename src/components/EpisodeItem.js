@@ -1,7 +1,7 @@
 import React from 'react'
 const EpisodeItem = (props) => {
     const { episode,updateEpisode,deleteYN} = props;
-    let url=episode.eurl.slice(0,15);
+    let url=episode.eurl.slice(0,5);
   return (
     <>   
     <div className="col-md-3 col-lg-3 col-xl-2 col-sm-4 my-3">

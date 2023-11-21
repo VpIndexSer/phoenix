@@ -5,11 +5,10 @@ import webcontentContext from 'context/webcontents/webcontentContext';
 import EpisodeItem from './EpisodeItem';
 const CRUDEpisode = (props) => {
   const { s_id } = props;
-  if(s_id)
-  {
-    localStorage.setItem('stored_s_id',s_id);
+  if (s_id) {
+    localStorage.setItem('stored_s_id', s_id);
   }
-  let stored_s_id=localStorage.getItem('stored_s_id');
+  let stored_s_id = localStorage.getItem('stored_s_id');
   const [episodes, setEpisodes] = useState({ id: "", ueno: "", ueurl: "" });
   const concon = useContext(webcontentContext);
   const { episode, getEpisode, editEpisode, deleteEpisode } = concon;
@@ -35,7 +34,18 @@ const CRUDEpisode = (props) => {
   const refClose = useRef(null)
   const handleclick = (e) => {
     e.preventDefault();
-    editEpisode(episodes.id, episodes.ueno, episodes.ueurl);
+    //set url
+    let myurl = episodes.ueurl;
+    let i2 = -1;
+    i2 = myurl.indexOf("/view");
+    let finalurl = myurl;
+    if (i2 !== -1) {
+      let finalurl0 = myurl.substring(0, i2);
+      let lastend = "/preview";
+      finalurl = finalurl0 + lastend;
+
+    }
+    editEpisode(episodes.id, episodes.ueno, finalurl);
     ref.current.click();
     // props.showMsg("Note is Updated Successfuly","success")
     // getNotes();
@@ -115,7 +125,7 @@ const CRUDEpisode = (props) => {
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-secondary" ref={refClose} data-bs-dismiss="modal">Close</button>
-              <button type="button" disabled={episodes.ueno.length < 0||episodes.ueurl.length <= 3} className="btn btn-primary" onClick={handleclick}>Update Season</button>
+              <button type="button" disabled={episodes.ueno.length < 0 || episodes.ueurl.length <= 3} className="btn btn-primary" onClick={handleclick}>Update Season</button>
             </div>
           </div>
         </div>
@@ -127,7 +137,7 @@ const CRUDEpisode = (props) => {
       <h1 className="container my-3 text-center">Your Episode</h1>
       <div className='row'>
         <div className="container my-4" style={{ textAlign: "center", color: "red" }}><h3>
-          {episode.length === 0 && 'No Content to Display'}</h3> </div>
+          {episode.length === 0 && 'Comming Soon ...'}</h3> </div>
         {episode.map((episode) => {
           // for unique key constrain key is used
           return <EpisodeItem key={episode._id} episode={episode} updateEpisode={updateEpisode} deleteYN={deleteYN} />;

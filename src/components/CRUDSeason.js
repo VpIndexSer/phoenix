@@ -121,7 +121,7 @@ const CRUDSeason = (props) => {
             <h1 className="container my-3 text-center">Your Content</h1>
             <div className='row'>
                 <div className="container my-4" style={{ textAlign: "center", color: "red" }}><h3>
-                    {season.length === 0 && 'No Content to Display'}</h3> </div>
+                    {season.length === 0 && 'Comming Soon ...'}</h3> </div>
                 {season.map((season) => {
                     // for unique key constrain key is used
                     return <SeasonItem key={season._id} season={season} updateSeason={updateSeason} deleteYN={deleteYN} setSID={setSID} />;
