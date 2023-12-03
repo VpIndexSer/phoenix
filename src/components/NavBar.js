@@ -56,7 +56,6 @@ export const NavBar = (props) => {
         <span class="dropdown-item dropcolor"onClick={()=>mgrid('col2')}>2 Grid</span>
         <span class="dropdown-item dropcolor"onClick={()=>mgrid('col3')}> 3 Grid</span>
         <span class="dropdown-item dropcolor"onClick={()=>mgrid('col4')}> 4 Grid</span>
-        <span class="dropdown-item dropcolor"onClick={()=>mgrid('col6')}> 6 Grid</span>
         </div>
       </li>
               {/* <div style={{paddingInline:'2px'}}onClick={()=>mgrid('col2')}>2 Column</div>
