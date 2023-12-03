@@ -162,7 +162,7 @@ const handleclick2=(e)=>{
         
         return <ContentItem key={content._id}  updateContent={updateContent} deleteYN={deleteYN}content={content}/>;
         // <ContentItem key={notes._id} updateContent={updateContent} note={notes} showMsg={props.showMsg}/>;
-      })}
+      }).reverse()}
     </div>
   </>)
 }

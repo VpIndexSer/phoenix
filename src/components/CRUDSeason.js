@@ -126,7 +126,7 @@ const CRUDSeason = (props) => {
                     // for unique key constrain key is used
                     return <SeasonItem key={season._id} season={season} updateSeason={updateSeason} deleteYN={deleteYN} setSID={setSID} />;
                     // <ContentItem key={notes._id} updateContent={updateContent} note={notes} showMsg={props.showMsg}/>;
-                })}
+                }).reverse()}
             </div>
         </>
     )

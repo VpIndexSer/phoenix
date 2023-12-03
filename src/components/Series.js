@@ -144,7 +144,7 @@ export default function Series(props) {
 
         return <WebContentItem key={content._id} setWID={setWID} updateContent={updateContent} content={content} deleteYN={deleteYN} />;
         // <ContentItem key={notes._id} updateContent={updateContent} note={notes} showMsg={props.showMsg}/>;
-      })}
+      }).reverse()}
     </div>
   </>)
 }

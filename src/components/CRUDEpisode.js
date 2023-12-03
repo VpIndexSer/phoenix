@@ -142,7 +142,7 @@ const CRUDEpisode = (props) => {
           // for unique key constrain key is used
           return <EpisodeItem key={episode._id} episode={episode} updateEpisode={updateEpisode} deleteYN={deleteYN} />;
           // <ContentItem key={notes._id} updateContent={updateContent} note={notes} showMsg={props.showMsg}/>;
-        })}
+        }).reverse()}
       </div>
     </>
   )
