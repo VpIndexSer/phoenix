@@ -1,10 +1,10 @@
 import React from 'react'
 const EpisodeItem = (props) => {
-    const { episode,updateEpisode,deleteYN} = props;
+    const { episode,updateEpisode,deleteYN,mygrid} = props;
     let url=episode.eurl.slice(0,5);
   return (
     <>   
-    <div className="col-md-3 col-lg-3 col-xl-2 col-sm-4 my-3">
+    <div className={`${mygrid} mysm col-md-3 col-lg-3 col-xl-2 col-sm-4 my-3`}>
     <div className="card contentitem my-2">
             <div className="card-body aspectsize" style={{backgroundColor:"#0b0a29"}}>
                 <div className="d-flex justify-content-end oprationline">                      

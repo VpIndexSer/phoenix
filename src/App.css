@@ -151,3 +151,6 @@ i{
   cursor: pointer;
   width: -webkit-fill-available;
 }
+.dropcolor{
+  color: white;
+}

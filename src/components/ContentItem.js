@@ -4,10 +4,10 @@ import React from 'react'
 export default function ContentItem(props) {
     // const concon=useContext(contentContext);
     // const{deleteContent}=concon;
-    const { content,updateContent,deleteYN } = props;
+    const { content,updateContent,deleteYN,mygrid } = props;
     
     return (
-        <div className="col-md-3 col-lg-3 col-xl-2 col-sm-4 my-3">
+        <div className={`${mygrid} mysm col-md-3 col-lg-3 col-xl-2 col-sm-4 my-3`}>
             <div className="card contentitem my-2">
             
             <img className="card-img-top poster" src={content.img}  alt="img" />

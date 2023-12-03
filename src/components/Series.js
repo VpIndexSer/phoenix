@@ -10,7 +10,7 @@ export default function Series(props) {
   let navigate = useNavigate();
   const concon = useContext(webcontentContext);
   const { content, getContent, editcontent,deleteContent } = concon;
-  const{setWID}=props;
+  const{mygrid,setWID}=props;
   //   console.log(notes)
 
   const [contents, setContents] = useState({ id: "", ename: "", eimg: "", estudio: "", econtenttype: "" })
@@ -69,8 +69,8 @@ export default function Series(props) {
     refClick.current.click();
   }
   return (<>
-    <AddWebContents />
 
+    <AddWebContents />
     {/* <!-- Button trigger modal --> */}
     <button ref={refClick} type="button" className="btn btn-primary d-none" data-toggle="modal" data-target="#exampleModalCenter">
       {/* Launch demo modal */}
@@ -142,7 +142,7 @@ export default function Series(props) {
       {content.map((content) => {
         // for unique key constrain key is used
 
-        return <WebContentItem key={content._id} setWID={setWID} updateContent={updateContent} content={content} deleteYN={deleteYN} />;
+        return <WebContentItem key={content._id} mygrid={mygrid} setWID={setWID} updateContent={updateContent} content={content} deleteYN={deleteYN} />;
         // <ContentItem key={notes._id} updateContent={updateContent} note={notes} showMsg={props.showMsg}/>;
       }).reverse()}
     </div>

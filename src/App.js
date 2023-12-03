@@ -66,7 +66,7 @@ function App() {
           <Router>
 
             <div className="App">
-              <NavBar />
+              <NavBar mgrid={mgrid}/>
             </div>
             <div className="container my-2" style={{ height: "100px" }}>
               <Mymsg msg={msg} />
@@ -77,7 +77,7 @@ function App() {
                 <Route exact path="/"
                   element={
                     <div className="container my-3">
-                      <Contents />
+                      <Contents mygrid={mygrid}/>
                     </div>} />
                 <Route exact path="/movie"
                   element={
@@ -87,7 +87,7 @@ function App() {
                 <Route exact path="/series"
                   element={
                     <div className="series">
-                      <Series setWID={setWID} />
+                      <Series setWID={setWID} mygrid={mygrid}/>
                     </div>} />
                 <Route exact path="/user"
                   element={
@@ -102,12 +102,12 @@ function App() {
                 <Route exact path="/seasons"
                   element={
                     <div className="seasons">
-                      <CRUDSeason setSID={setSID} w_id={w_id} />
+                      <CRUDSeason setSID={setSID} w_id={w_id} mygrid={mygrid}/>
                     </div>} />
                 <Route exact path="/episode"
                   element={
                     <div className="episode">
-                      <CRUDEpisode s_id={s_id} />
+                      <CRUDEpisode s_id={s_id} mygrid={mygrid}/>
                     </div>} />
                 <Route exact path="/login"
                   element={

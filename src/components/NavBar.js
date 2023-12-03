@@ -3,7 +3,8 @@ import React from 'react';
 import {Link,useLocation} from "react-router-dom";
 // import { useEffect } from 'react';
 import {useNavigate} from 'react-router-dom';
-export const NavBar = () => {
+export const NavBar = (props) => {
+  const{mgrid}=props;
     let location = useLocation();
     let navigate = useNavigate();
     let currtoken=localStorage.getItem('token');
@@ -47,6 +48,21 @@ export const NavBar = () => {
               <li className="nav-item">
                 <Link className={`nav-link ${location.pathname==="/user"?"active":""}`} to="/user">user</Link>                   
               </li>
+              <li class="nav-item dropdown">
+        <span class="nav-link dropdown-toggle bg-dark" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Grids
+        </span>
+        <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdownMenuLink">
+        <span class="dropdown-item dropcolor"onClick={()=>mgrid('col2')}>2 Grid</span>
+        <span class="dropdown-item dropcolor"onClick={()=>mgrid('col3')}> 3 Grid</span>
+        <span class="dropdown-item dropcolor"onClick={()=>mgrid('col4')}> 4 Grid</span>
+        <span class="dropdown-item dropcolor"onClick={()=>mgrid('col6')}> 6 Grid</span>
+        </div>
+      </li>
+              {/* <div style={{paddingInline:'2px'}}onClick={()=>mgrid('col2')}>2 Column</div>
+        <div onClick={()=>mgrid('col3')}style={{paddingInline:'2px'}}> 3 Column</div>
+        <div style={{paddingInline:'2px'}} onClick={()=>mgrid('col4')}> 4 Column</div> */}
+
             </ul>
             
             {/* <form className="d-flex" role="search">

@@ -4,7 +4,7 @@ import AddEpisode from './AddEpisode';
 import webcontentContext from 'context/webcontents/webcontentContext';
 import EpisodeItem from './EpisodeItem';
 const CRUDEpisode = (props) => {
-  const { s_id } = props;
+  const { s_id,mygrid } = props;
   if (s_id) {
     localStorage.setItem('stored_s_id', s_id);
   }
@@ -140,7 +140,7 @@ const CRUDEpisode = (props) => {
           {episode.length === 0 && 'Comming Soon ...'}</h3> </div>
         {episode.map((episode) => {
           // for unique key constrain key is used
-          return <EpisodeItem key={episode._id} episode={episode} updateEpisode={updateEpisode} deleteYN={deleteYN} />;
+          return <EpisodeItem mygrid={mygrid}key={episode._id} episode={episode} updateEpisode={updateEpisode} deleteYN={deleteYN} />;
           // <ContentItem key={notes._id} updateContent={updateContent} note={notes} showMsg={props.showMsg}/>;
         }).reverse()}
       </div>

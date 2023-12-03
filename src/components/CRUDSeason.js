@@ -6,7 +6,7 @@ import webcontentContext from 'context/webcontents/webcontentContext';
 const CRUDSeason = (props) => {
     const concon = useContext(webcontentContext);
     const { season, getSeason, deleteSeason, editSeason } = concon;
-    const { w_id, setSID } = props;
+    const { w_id, setSID,mygrid } = props;
     if(w_id)
     {
         localStorage.setItem("stored_w_id",w_id);
@@ -124,7 +124,7 @@ const CRUDSeason = (props) => {
                     {season.length === 0 && 'Comming Soon ...'}</h3> </div>
                 {season.map((season) => {
                     // for unique key constrain key is used
-                    return <SeasonItem key={season._id} season={season} updateSeason={updateSeason} deleteYN={deleteYN} setSID={setSID} />;
+                    return <SeasonItem key={season._id} mygrid={mygrid}season={season} updateSeason={updateSeason} deleteYN={deleteYN} setSID={setSID} />;
                     // <ContentItem key={notes._id} updateContent={updateContent} note={notes} showMsg={props.showMsg}/>;
                 }).reverse()}
             </div>

@@ -2,11 +2,11 @@ import React from 'react'
 import {Link} from "react-router-dom";
 
 const SeasonItem = (props) => {
-  const { season,updateSeason,deleteYN,setSID } = props;
+  const { season,updateSeason,deleteYN,setSID,mygrid } = props;
   return (
     
     <>   
-    <div className="col-md-3 col-lg-3 col-xl-2 col-sm-4 my-3">
+    <div className={`${mygrid} mysm col-md-3 col-lg-3 col-xl-2 col-sm-4 my-3`}>
     <div className="card contentitem my-2">
             <div className="card-body aspectsize" style={{backgroundColor:"#0b0a29"}}>
                
