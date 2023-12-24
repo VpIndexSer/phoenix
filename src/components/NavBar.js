@@ -1,10 +1,11 @@
 import React from "react";
-import { useContext } from 'react'
+import { useContext,useState } from 'react'
 import contentContext from '../context/contents/contentContext'
 import { Link, useLocation } from "react-router-dom";
 // import { useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 export const NavBar = (props) => {
+  const [whatfor, setwhatfor] = useState("all")
   const concon = useContext(contentContext);
   const { searchContent } = concon;
   const { mgrid } = props;
@@ -33,7 +34,7 @@ export const NavBar = (props) => {
    
     if(document.getElementById("searchtext").value){
       let finds =document.getElementById("searchtext").value ;
-      let whatfor="all";
+      
       console.log(finds,whatfor);
       //localy api fetch
       // const response = await fetch("http://localhost:5000/api/contents/fetchcontents", {
@@ -79,22 +80,60 @@ export const NavBar = (props) => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <div className="input-group rounded">
+                <div className="input-group rounded ">
+                <span
+                  className="nav-link dropdown-toggle bg-dark "
+                  href="#"
+                  id="navbarDropdownMenuLink"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  style={{border:"1px solid #dee2e6 ",borderRadius:"5px 0px 0px 5px",marginLeft:"5px"}}
+                >
+                 
+                </span>
                   <input  
                   // onKeyPress={enterme}
                   onKeyDown={enterme}
                     type="search"
-                    className="form-control rounded"
+                    className="form-control "
                     placeholder="Search"
                     aria-label="Search"
                     aria-describedby="search-addon"
-                    style={{background:"#cfe2ff00",color:"white",marginLeft:"16px",marginRight:"1px"}}
+                    style={{background:"#cfe2ff00",color:"white",marginLeft:"0px",marginRight:"1px",borderRadius:"0px 5px 5px 0px"}}
                     id="searchtext"
-                   
+                    
                   />
-                  <span className="input-group-text border-0" id="search-addon" style={{background:"#cfe2ff00",color:"white",marginLeft:"1px",marginRight:"16px"}}>
+                  <span className="input-group-text border-0" id="search-addon" style={{background:"#cfe2ff00",color:"white",marginLeft:"0px",marginRight:"16px"}}>
                     <i className="fas fa-search" onClick={searchme}></i>
                   </span>
+                 
+                <div
+                  className="dropdown-menu bg-dark setwidth"
+                  aria-labelledby="navbarDropdownMenuLink"
+                >
+                  <span
+                    className="dropdown-item dropcolor "
+                 
+                    onClick={() => setwhatfor("content")}
+                  >
+                    By Name
+                  </span>
+                  <span
+                    className="dropdown-item dropcolor"
+                    onClick={() => setwhatfor("studio")}
+                  >
+                    {" "}
+                    By Producer
+                  </span>
+                  <span
+                    className="dropdown-item dropcolor"
+                    onClick={() => mgrid("all")}
+                  >
+                    {" "}
+                    By All
+                  </span>
+                </div>
                 </div>
               </li>
               <li className="nav-item">

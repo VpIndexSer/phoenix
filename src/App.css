@@ -154,3 +154,7 @@ i{
 .dropcolor{
   color: white;
 }
+
+.setwidth{
+  min-width: 18rem;
+}
