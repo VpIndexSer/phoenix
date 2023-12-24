@@ -35,7 +35,7 @@ export const NavBar = (props) => {
     if(document.getElementById("searchtext").value){
       let finds =document.getElementById("searchtext").value ;
       
-      console.log(finds,whatfor);
+      // console.log(finds,whatfor);
       //localy api fetch
       // const response = await fetch("http://localhost:5000/api/contents/fetchcontents", {
       //   method: "POST",
