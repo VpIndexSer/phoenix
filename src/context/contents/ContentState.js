@@ -107,9 +107,24 @@ const ContentState = (props) => {
 
 
   }
-
+      const searchContent = async (finds,whatfor) => {
+        //api call
+        const response = await fetch(`${host}/api/contents/fetchcontents`, {
+          
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "auth-token": localStorage.getItem('token')
+          },
+         body: JSON.stringify({finds,whatfor}),
+          
+        });
+        const json = await response.json();
+        console.log(json);
+  
+      }
   return (
-    <contentContext.Provider value={{ content, addContent, deleteContent, editcontent ,getContent}}>
+    <contentContext.Provider value={{ content, addContent, deleteContent, editcontent ,getContent,searchContent}}>
       {/* <noteContext.Provider value={{state,update}}> */}
       {props.children}
     </contentContext.Provider>

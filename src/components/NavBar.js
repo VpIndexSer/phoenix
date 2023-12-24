@@ -1,26 +1,12 @@
 import React from "react";
+import { useContext } from 'react'
+import contentContext from '../context/contents/contentContext'
 import { Link, useLocation } from "react-router-dom";
 // import { useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 export const NavBar = (props) => {
-  const searchme = async ()=>{
-    if(document.getElementById("searchtext").value){
-      let finds =document.getElementById("searchtext").value ;
-      let whatfor='all';
-      //  console.log(finds);
-      const response = await fetch("https://backend-api-five-psi.vercel.app/api/contents/fetchcontents", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          "auth-token": localStorage.getItem('token')
-        },
-        body: JSON.stringify({finds,whatfor}),
-        
-      });
-      const json = await response.json();
-      console.log(json)
-    }
-  };
+  const concon = useContext(contentContext);
+  const { searchContent } = concon;
   const { mgrid } = props;
   let location = useLocation();
   let navigate = useNavigate();
@@ -42,6 +28,29 @@ export const NavBar = (props) => {
     localStorage.removeItem("stored_w_id");
     localStorage.removeItem("stored_s_id");
     navigate("/login");
+  };
+  const searchme = async ()=>{
+   
+    if(document.getElementById("searchtext").value){
+      let finds =document.getElementById("searchtext").value ;
+      let whatfor="all";
+      console.log(finds,whatfor);
+      //localy api fetch
+      // const response = await fetch("http://localhost:5000/api/contents/fetchcontents", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //     "auth-token": localStorage.getItem('token')
+      //   },
+      //   body: JSON.stringify({finds,whatfor}),
+        
+      // });
+      // const json = await response.json();
+      // console.log(json);
+
+      //use context api call
+      searchContent(finds,whatfor);
+    }
   };
   return (
     <>
