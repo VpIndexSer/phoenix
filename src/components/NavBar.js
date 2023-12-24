@@ -51,7 +51,13 @@ export const NavBar = (props) => {
       //use context api call
       searchContent(finds,whatfor);
     }
+   
   };
+   const enterme = (event) => {
+      if (event.key === 'Enter') {
+        searchme();
+      }
+    };
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky">
@@ -74,7 +80,9 @@ export const NavBar = (props) => {
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <div className="input-group rounded">
-                  <input
+                  <input  
+                  // onKeyPress={enterme}
+                  onKeyDown={enterme}
                     type="search"
                     className="form-control rounded"
                     placeholder="Search"
@@ -82,6 +90,7 @@ export const NavBar = (props) => {
                     aria-describedby="search-addon"
                     style={{background:"#cfe2ff00",color:"white",marginLeft:"16px",marginRight:"1px"}}
                     id="searchtext"
+                   
                   />
                   <span className="input-group-text border-0" id="search-addon" style={{background:"#cfe2ff00",color:"white",marginLeft:"1px",marginRight:"16px"}}>
                     <i className="fas fa-search" onClick={searchme}></i>

@@ -120,6 +120,7 @@ const ContentState = (props) => {
           
         });
         const json = await response.json();
+        setContent(json);
         console.log(json);
   
       }
